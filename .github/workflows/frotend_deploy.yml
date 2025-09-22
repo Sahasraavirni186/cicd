@@ -2,7 +2,7 @@ name: Deploy React App to GitHub Pages
 
 on:
   push:
-    branches: [ main ]   # Runs only when you push to main branch
+    branches: [ main ]
 
 jobs:
   build:
@@ -19,7 +19,6 @@ jobs:
 
       - name: Install dependencies and build
         run: |
-          cd frontend        # ⬅️ change this if your React app is not in "frontend" folder
           npm install
           npm run build
 
@@ -27,4 +26,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/build   # ⬅️ change to ./build if frontend is at root
+          publish_dir: ./build
